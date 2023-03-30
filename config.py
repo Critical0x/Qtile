@@ -32,7 +32,7 @@ keys = [
 
 # SUPER + FUNCTION KEYS
 
-    Key([mod], "f", lazy.window.toggle_fullscreen()),
+    Key([mod], "m", lazy.window.toggle_fullscreen()),
     Key([mod], "q", lazy.window.kill()),
 
 
@@ -116,11 +116,10 @@ groups = []
 # FOR QWERTY KEYBOARDS
 group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0",]
 
-group_labels = ["1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 ", "0",]
-#group_labels = ["", "", "", "", "", "", "", "", "", "",]
-#group_labels = ["dev.", "www.", "sys.", "doc.", "file.", "vbox.", "chat.", "music.", "vid.", "gfx.",]
+#group_labels = ["1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 ", "0",]
+group_labels = ["web", "dev", "sys", "doc", "file", "vbox", "chat", "music", "vid", "gfx",]
 
-group_layouts = ["monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "max", "max",]
+group_layouts = ["monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall",]
 
 for i in range(len(group_names)):
     groups.append(
@@ -139,16 +138,16 @@ for i in groups:
         Key([mod, "shift" ], "Tab", lazy.screen.prev_group()),
 
 # MOVE WINDOW TO SELECTED WORKSPACE 1-10 AND STAY ON WORKSPACE
-        Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
+        #Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
 # MOVE WINDOW TO SELECTED WORKSPACE 1-10 AND FOLLOW MOVED WINDOW TO WORKSPACE
-        #Key([mod, "shift"], i.name, lazy.window.togroup(i.name) , lazy.group[i.name].toscreen()),
+        Key([mod, "shift"], i.name, lazy.window.togroup(i.name) , lazy.group[i.name].toscreen()),
     ])
 
 
 def init_layout_theme():
     return {"margin":12,
             "border_width":2,
-            "border_focus": "#88c0d0",
+            "border_focus": "#81a1c1",
             "border_normal": "#2e3440"
             }
 
@@ -156,12 +155,11 @@ layout_theme = init_layout_theme()
 
 
 layouts = [
-    layout.MonadTall(**layout_theme),
+    layout.MonadTall(**layout_theme, new_client_position='top'),
     layout.Max()
 ]
 
 # COLORS FOR THE BAR
-#Theme name : ArcoLinux Default
 def init_colors():
     return [["#D8DEE9", "#D8DEE9"], # color 0
             ["#2E3440", "#2E3440"], # color 1
@@ -197,12 +195,12 @@ def init_widgets_list():
                         foreground = colors[2],
                         background = colors[1]
                         ),
-               widget.GroupBox(font="Source Code Pro Bold",
-                        fontsize = 15,
+               widget.GroupBox(font="Source Code Pro",
+                        fontsize = 14,
                         margin_y = 2,
-                        margin_x = 1,
+                        margin_x = 3,
                         padding_y = 2,
-                        padding_x = 1,
+                        padding_x = 3,
                         borderwidth = 0,
                         disable_drag = True,
                         active = colors[7],
@@ -304,7 +302,7 @@ def init_widgets_list():
                         fontsize=18
                         ),
                widget.Clock(
-                        foreground = colors[0],
+                        foreground = colors[8],
                         background = colors[1],
                         font = "Source Code Pro Bold",
                         fontsize = 14,
@@ -319,13 +317,13 @@ def init_widgets_list():
                widget.TextBox(
                         font="FontAwesome",
                         text="  ",
-                        foreground=colors[3],
+                        foreground=colors[4],
                         background=colors[1],
                         padding = 0,
                         fontsize=15
                         ),
                widget.Clock(
-                        foreground = colors[0],
+                        foreground = colors[4],
                         background = colors[1],
                         fontsize = 14,
                         font = "Source Code Pro Bold",
@@ -377,7 +375,7 @@ widgets_screen1 = init_widgets_screen1()
 
 
 def init_screens():
-    return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), size=28, opacity=0.95))]
+    return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), size=28, opacity=1.0))]
 screens = init_screens()
 
 
@@ -426,8 +424,6 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='ssh-askpass'),  # ssh-askpass
     Match(title='branchdialog'),  # gitk
     Match(title='pinentry'),  # GPG key password entry
-    Match(wm_class='Arcolinux-welcome-app.py'),
-    Match(wm_class='Arcolinux-calamares-tool.py'),
     Match(wm_class='confirm'),
     Match(wm_class='dialog'),
     Match(wm_class='download'),
@@ -438,9 +434,6 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='toolbar'),
     Match(wm_class='Arandr'),
     Match(wm_class='feh'),
-    Match(wm_class='Galculator'),
-    Match(wm_class='archlinux-logout'),
-    Match(wm_class='xfce4-terminal'),
 
 ], fullscreen_border_width = 0, border_width = 0)
 auto_fullscreen = True
@@ -448,3 +441,4 @@ auto_fullscreen = True
 focus_on_window_activation = "focus" # or smart
 
 wmname = "LG3D"
+
