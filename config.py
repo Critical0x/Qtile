@@ -116,8 +116,8 @@ groups = []
 # FOR QWERTY KEYBOARDS
 group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0",]
 
-#group_labels = ["1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 ", "0",]
-group_labels = ["web", "dev", "sys", "doc", "file", "vbox", "chat", "music", "vid", "gfx",]
+group_labels = ["1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 ", "0",]
+#group_labels = ["web", "dev", "sys", "doc", "file", "vbox", "chat", "music", "vid", "gfx",]
 
 group_layouts = ["monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall",]
 
@@ -146,7 +146,7 @@ for i in groups:
 
 def init_layout_theme():
     return {"margin":12,
-            "border_width":2,
+            "border_width":0,
             "border_focus": "#81a1c1",
             "border_normal": "#2e3440"
             }
@@ -204,7 +204,7 @@ def init_widgets_list():
                         borderwidth = 0,
                         disable_drag = True,
                         active = colors[7],
-                        inactive = colors[9],
+                        inactive = colors[2],
                         rounded = False,
                         highlight_method = "text",
                         this_current_screen_border = colors[8],
@@ -220,7 +220,7 @@ def init_widgets_list():
                widget.CurrentLayout(
                         font = "Source Code Pro Bold",
                         fontsize = 14,
-                        foreground = colors[6],
+                        foreground = colors[3],
                         background = colors[1]
                         ),
                widget.Sep(
@@ -231,36 +231,36 @@ def init_widgets_list():
                         ),
                widget.WindowName(font="Source Code Pro Bold",
                         fontsize = 14,
-                        foreground = colors[0],
-                        background = colors[1],
-                        ),
-               widget.Sep(
-                        linewidth = 1,
-                        padding = 10,
-                        foreground = colors[2],
-                        background = colors[1]
-                        ),
-               widget.CPU(
-                        background = colors[1],
                         foreground = colors[4],
-                        font = "Source Code Pro Bold",
-                        fontsize = 14,
+                        background = colors[1],
                         ),
-               widget.Sep(
-                        linewidth = 1,
-                        padding = 10,
-                        foreground = colors[2],
-                        background = colors[1]
-                        ),
-               widget.Net(
-                        font="Source Code Pro Bold",
-                        fontsize=14,
-                        interface="wlan0",
-                        format = '{down}↓↑{up}',
-                        foreground=colors[8],
-                        background=colors[1],
-                        padding = 0,
-                        ),
+               #widget.Sep(
+               #         linewidth = 1,
+               #         padding = 10,
+               #         foreground = colors[2],
+               #         background = colors[1]
+               #         ),
+               #widget.CPU(
+               #         background = colors[1],
+               #         foreground = colors[0],
+               #         font = "Source Code Pro Bold",
+               #         fontsize = 14,
+               #         ),
+               #widget.Sep(
+               #         linewidth = 1,
+               #         padding = 10,
+               #         foreground = colors[2],
+               #         background = colors[1]
+               #         ),
+               #widget.Net(
+               #         font="Source Code Pro Bold",
+               #         fontsize=14,
+               #         interface="wlan0",
+               #         format = '{down}↓↑{up}',
+               #         foreground=colors[0],
+               #         background=colors[1],
+               #         padding = 0,
+               #         ),
                widget.Sep(
                         linewidth = 1,
                         padding = 10,
@@ -441,4 +441,5 @@ auto_fullscreen = True
 focus_on_window_activation = "focus" # or smart
 
 wmname = "LG3D"
+
 
