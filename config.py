@@ -170,7 +170,7 @@ def init_colors():
             ["#BF616A", "#BF616A"], # color 6
             ["#81A1C1", "#81A1C1"], # color 7
             ["#B48EAD", "#B48EAD"], # color 8
-            ["#999DA0", "#999DA0"]] # color 9
+            ["#EBCB8B", "#EBCB8B"]] # color 9
 
 
 colors = init_colors()
@@ -217,11 +217,39 @@ def init_widgets_list():
                         foreground = colors[2],
                         background = colors[1]
                         ),
-               widget.CurrentLayout(
-                        font = "Source Code Pro Bold",
-                        fontsize = 14,
+              # widget.CurrentLayout(
+              #          font = "Source Code Pro Bold",
+              #          fontsize = 14,
+              #          foreground = colors[3],
+              #          background = colors[1]
+              #          ),
+              # widget.Sep(
+              #          linewidth = 1,
+              #          padding = 10,
+              #          foreground = colors[2],
+              #          background = colors[1]
+              #          ),
+               widget.CheckUpdates(
+                        distro = 'Arch_yay',
+                        background = colors[1],
                         foreground = colors[3],
-                        background = colors[1]
+                        no_update_string = 'updated',
+                        display_format = 'new: {updates}',
+                        colour_no_updates = colors[4],
+                        colour_have_updates = colors[6],
+                        font = 'Source Code Pro Bold',
+                        fontsize = 13
+                        ),
+               widget.Sep(
+                        linewidth = 1,
+                        padding = 10,
+                        background = colors[1],
+                        foreground = colors[2],
+                        ),
+               widget.WindowName(font="Source Code Pro Bold",
+                        fontsize = 14,
+                        foreground = colors[0],
+                        background = colors[1],
                         ),
                widget.Sep(
                         linewidth = 1,
@@ -229,38 +257,27 @@ def init_widgets_list():
                         foreground = colors[2],
                         background = colors[1]
                         ),
-               widget.WindowName(font="Source Code Pro Bold",
-                        fontsize = 14,
-                        foreground = colors[4],
+               widget.CPU(
                         background = colors[1],
+                        foreground = colors[8],
+                        font = "Source Code Pro Bold",
+                        fontsize = 13,
                         ),
-               #widget.Sep(
-               #         linewidth = 1,
-               #         padding = 10,
-               #         foreground = colors[2],
-               #         background = colors[1]
-               #         ),
-               #widget.CPU(
-               #         background = colors[1],
-               #         foreground = colors[0],
-               #         font = "Source Code Pro Bold",
-               #         fontsize = 14,
-               #         ),
-               #widget.Sep(
-               #         linewidth = 1,
-               #         padding = 10,
-               #         foreground = colors[2],
-               #         background = colors[1]
-               #         ),
-               #widget.Net(
-               #         font="Source Code Pro Bold",
-               #         fontsize=14,
-               #         interface="wlan0",
-               #         format = '{down}↓↑{up}',
-               #         foreground=colors[0],
-               #         background=colors[1],
-               #         padding = 0,
-               #         ),
+               widget.Sep(
+                        linewidth = 1,
+                        padding = 10,
+                        foreground = colors[2],
+                        background = colors[1]
+                        ),
+               widget.Net(
+                        font="Source Code Pro Bold",
+                        fontsize=13,
+                        interface="wlan0",
+                        format = '{down}↓↑{up}',
+                        foreground=colors[9],
+                        background=colors[1],
+                        padding = 0,
+                        ),
                widget.Sep(
                         linewidth = 1,
                         padding = 10,
@@ -353,6 +370,20 @@ def init_widgets_list():
                         background = colors[1],
                         icon_size = 20,
                         padding = 4
+                        ),
+                widget.Sep(
+                        linewidth = 1,
+                        padding = 10,
+                        foreground = colors[2],
+                        background = colors[1]
+                        ),
+                widget.Pomodoro(
+                        background = colors[1],
+                        color_active = colors[3],
+                        color_break = colors[9],
+                        color_inactive = colors[6],
+                        font = 'Source Code Pro Bold',
+                        icon_size = 14
                         ),
                 widget.Sep(
                         linewidth = 1,
