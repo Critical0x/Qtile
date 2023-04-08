@@ -230,7 +230,7 @@ def init_widgets_list():
               #          background = colors[1]
               #          ),
                widget.CheckUpdates(
-                        distro = 'Arch_yay',
+                        distro = 'Arch',
                         background = colors[1],
                         foreground = colors[3],
                         no_update_string = 'updated',
