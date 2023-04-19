@@ -166,11 +166,11 @@ def init_colors():
             ["#4C566A", "#4C566A"], # color 2
             ["#A3BE8C", "#A3BE8C"], # color 3
             ["#8FBCBB", "#8FBCBB"], # color 4
-            ["#88C0D0", "#88C0D0"], # color 5
+            ["#EBCB8B", "#EBCB8B"], # color 5
             ["#BF616A", "#BF616A"], # color 6
             ["#81A1C1", "#81A1C1"], # color 7
             ["#B48EAD", "#B48EAD"], # color 8
-            ["#EBCB8B", "#EBCB8B"]] # color 9
+            ["#D08770", "#D08770"]] # color 9
 
 
 colors = init_colors()
@@ -207,7 +207,7 @@ def init_widgets_list():
                         inactive = colors[2],
                         rounded = False,
                         highlight_method = "text",
-                        this_current_screen_border = colors[8],
+                        this_current_screen_border = colors[9],
                         foreground = colors[2],
                         background = colors[1]
                         ),
@@ -472,5 +472,6 @@ auto_fullscreen = True
 focus_on_window_activation = "focus" # or smart
 
 wmname = "LG3D"
+
 
 
