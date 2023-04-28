@@ -8,7 +8,6 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen, Rule
 from libqtile.command import lazy
 from libqtile.widget import Spacer
 import arcobattery
-from spotify import Spotify
 
 #mod4 or mod = super key
 mod = "mod4"
@@ -180,7 +179,7 @@ colors = init_colors()
 # WIDGETS FOR THE BAR
 
 def init_widgets_defaults():
-    return dict(font="Source Code Pro",
+    return dict(font="JetbrainsMono Nerd Font",
                 fontsize = 12,
                 padding = 2,
                 background=colors[1])
@@ -196,7 +195,7 @@ def init_widgets_list():
                         foreground = colors[2],
                         background = colors[1]
                         ),
-               widget.GroupBox(font="Source Code Pro Bold",
+               widget.GroupBox(font="JetbrainsMono Nerd Font",
                         fontsize = 15,
                         margin_y = 2,
                         margin_x = 3,
@@ -219,35 +218,18 @@ def init_widgets_list():
                         background = colors[1]
                         ),
                widget.CurrentLayout(
-                        font = "Source Code Pro Bold",
+                        font = "JetbrainsMono Nerd Font Bold",
                         fontsize = 14,
-                        foreground = colors[3],
+                        foreground = colors[8],
                         background = colors[1]
                         ),
-              # widget.Sep(
-              #          linewidth = 1,
-              #          padding = 10,
-              #          foreground = colors[2],
-              #          background = colors[1]
-              #          ),
-              # widget.CheckUpdates(
-              #          distro = 'Arch',
-              #          background = colors[1],
-              #          foreground = colors[3],
-              #          no_update_string = 'updated',
-              #          display_format = 'new: {updates}',
-              #          colour_no_updates = colors[4],
-              #          colour_have_updates = colors[6],
-              #          font = 'Source Code Pro Bold',
-              #          fontsize = 13
-              #          ),
                widget.Sep(
                         linewidth = 1,
                         padding = 10,
                         background = colors[1],
                         foreground = colors[2],
                         ),
-               widget.WindowName(font="Source Code Pro Bold",
+               widget.WindowName(font="JetbrainsMono Nerd Font Bold",
                         fontsize = 14,
                         foreground = colors[0],
                         background = colors[1],
@@ -258,32 +240,11 @@ def init_widgets_list():
                         padding = 10,
                         linewidth = 1
                         ),
-               #widget.Sep(
-               #         linewidth = 1,
-               #         padding = 10,
-               #         foreground = colors[2],
-               #         background = colors[1]
-               #         ),
                widget.CPU(
                         background = colors[1],
-                        foreground = colors[3],
-                        font = "Source Code Pro Bold",
+                        foreground = colors[9],
+                        font = "JetbrainsMono Nerd Font Bold",
                         fontsize = 13,
-                        ),
-               widget.Sep(
-                        linewidth = 1,
-                        padding = 10,
-                        foreground = colors[2],
-                        background = colors[1]
-                        ),
-               widget.Net(
-                        font="Source Code Pro Bold",
-                        fontsize=13,
-                        interface="wlan0",
-                        format = '{down}↓↑{up}',
-                        foreground=colors[4],
-                        background=colors[1],
-                        padding = 0,
                         ),
                widget.Sep(
                         linewidth = 1,
@@ -295,7 +256,7 @@ def init_widgets_list():
                         measure_mem = 'G',
                         foreground = colors[3],
                         background = colors[1],
-                        font = "Source Code Pro Bold",
+                        font = "JetbrainsMono Nerd Font Bold",
                         fontsize = 14
                         ),
                widget.Sep(
@@ -307,8 +268,8 @@ def init_widgets_list():
                widget.DF(
                         visible_on_warn = False,
                         background = colors[1],
-                        foreground = colors[4],
-                        font = "Source Code Pro Bold",
+                        foreground = colors[5],
+                        font = "JetbrainsMono Nerd Font Bold",
                         fontsize = 14
                         ),
                widget.Sep(
@@ -320,15 +281,15 @@ def init_widgets_list():
                widget.TextBox(
                         font="FontAwesome",
                         text="  ",
-                        foreground=colors[0],
+                        foreground=colors[8],
                         background=colors[1],
                         padding = 0,
                         fontsize=18
                         ),
                widget.Clock(
-                        foreground = colors[3],
+                        foreground = colors[8],
                         background = colors[1],
-                        font = "Source Code Pro Bold",
+                        font = "JetbrainsMono Nerd Font Bold",
                         fontsize = 14,
                         format = "%H:%M"
                         ),
@@ -341,16 +302,16 @@ def init_widgets_list():
                widget.TextBox(
                         font="FontAwesome",
                         text="  ",
-                        foreground=colors[4],
+                        foreground=colors[7],
                         background=colors[1],
                         padding = 0,
                         fontsize=15
                         ),
                widget.Clock(
-                        foreground = colors[4],
+                        foreground = colors[7],
                         background = colors[1],
                         fontsize = 14,
-                        font = "Source Code Pro Bold",
+                        font = "JetbrainsMono Nerd Font Bold",
                         format="%m/%d/%y"
                         ),
                widget.Sep(
@@ -359,21 +320,21 @@ def init_widgets_list():
                         foreground = colors[2],
                         background = colors[1]
                         ),
-               Spotify(
-                    foreground = colors[3],
-                    background = colors[1],
-                    font = 'Source Code Pro Bold',
-                    fontsize = 13,
-                    play_icon = '>',
-                    pause_icon = 'x',
-                    format = '{icon} {artist}: {track}'
-                      ),
-                widget.Sep(
-                        linewidth = 1,
-                        padding = 10,
-                        foreground = colors[2],
-                        background = colors[1]
-                        ),
+               #Spotify(
+               #     foreground = colors[3],
+               #     background = colors[1],
+               #     font = 'Source Code Pro Bold',
+               #     fontsize = 13,
+               #     play_icon = '>',
+               #     pause_icon = 'x',
+               #     format = '{icon} {artist}: {track}'
+               #       ),
+               # widget.Sep(
+               #         linewidth = 1,
+               #         padding = 10,
+               #         foreground = colors[2],
+               #         background = colors[1]
+               #         ),
                 arcobattery.BatteryIcon(
                         padding = 0,
                         scale = 0.7,
@@ -399,20 +360,20 @@ def init_widgets_list():
                         foreground = colors[2],
                         background = colors[1]
                         ),
-                #widget.Pomodoro(
-                #        background = colors[1],
-                #        color_active = colors[3],
-                #        color_break = colors[9],
-                #        color_inactive = colors[6],
-                #        font = 'Source Code Pro Bold',
-                #        icon_size = 14
-                #        ),
-                #widget.Sep(
-                #        linewidth = 1,
-                #        padding = 10,
-                #        foreground = colors[2],
-                #        background = colors[1]
-                #        ),
+                widget.Pomodoro(
+                        background = colors[1],
+                        color_active = colors[3],
+                        color_break = colors[9],
+                        color_inactive = colors[6],
+                        font = 'JetbrainsMono Nerd Font Bold',
+                        icon_size = 14
+                        ),
+                widget.Sep(
+                        linewidth = 1,
+                        padding = 10,
+                        foreground = colors[2],
+                        background = colors[1]
+                        ),
               ]
     return widgets_list
 
@@ -494,6 +455,7 @@ auto_fullscreen = True
 focus_on_window_activation = "focus" # or smart
 
 wmname = "LG3D"
+
 
 
 
