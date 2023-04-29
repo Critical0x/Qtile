@@ -10,6 +10,7 @@ from libqtile.widget import Spacer
 import arcobattery
 from qtile_extras import widget
 from qtile_extras.widget.decorations import BorderDecoration
+from qtile_extras.widget.decorations import RectDecoration
 
 #mod4 or mod = super key
 mod = "mod4"
@@ -140,9 +141,9 @@ for i in groups:
         Key([mod, "shift" ], "Tab", lazy.screen.prev_group()),
 
 # MOVE WINDOW TO SELECTED WORKSPACE 1-10 AND STAY ON WORKSPACE
-        #Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
+        Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
 # MOVE WINDOW TO SELECTED WORKSPACE 1-10 AND FOLLOW MOVED WINDOW TO WORKSPACE
-        Key([mod, "shift"], i.name, lazy.window.togroup(i.name) , lazy.group[i.name].toscreen()),
+        Key([mod, "control"], i.name, lazy.window.togroup(i.name) , lazy.group[i.name].toscreen()),
     ])
 
 
@@ -242,14 +243,15 @@ def init_widgets_list():
                         ),
                widget.CPU(
                         background = colors[1],
-                        foreground = colors[9],
+                        foreground = colors[1],
                         font = "JetbrainsMono Nerd Font Bold",
                         fontsize = 13,
                         decorations = [
-                            BorderDecoration (
+                            RectDecoration (
                                 colour = colors[9],
-                                border_width = [0, 0, 2, 0],
-                                padding_x = 5
+                                padding_y = 5,
+                                radius = 2,
+                                filled = True
                             ),
                         ],
                         ),
@@ -261,15 +263,17 @@ def init_widgets_list():
                         ),
                widget.Memory(
                         measure_mem = 'G',
-                        foreground = colors[3],
+                        foreground = colors[1],
                         background = colors[1],
                         font = "JetbrainsMono Nerd Font Bold",
                         fontsize = 14,
                         decorations = [
-                            BorderDecoration (
+                            RectDecoration (
                                 colour = colors[3],
-                                border_width = [0, 0, 2, 0],
-                                padding_x = 4,),
+                                padding_y = 5,
+                                radius = 2,
+                                filled = True
+                                ),
                         ],
                         ),
                widget.Sep(
@@ -281,14 +285,15 @@ def init_widgets_list():
                widget.DF(
                         visible_on_warn = False,
                         background = colors[1],
-                        foreground = colors[5],
+                        foreground = colors[1],
                         font = "JetbrainsMono Nerd Font Bold",
                         fontsize = 14,
                         decorations = [
-                            BorderDecoration (
+                            RectDecoration (
                                 colour = colors[5],
-                                border_width = [0, 0, 2, 0],
-                                padding_x = 4
+                                padding_y = 5,
+                                radius = 2,
+                                filled = True
                             ),
                         ],
                         ),
@@ -307,16 +312,17 @@ def init_widgets_list():
                #         fontsize=18,
                #         ),
                widget.Clock(
-                        foreground = colors[8],
+                        foreground = colors[1],
                         background = colors[1],
                         font = "JetbrainsMono Nerd Font Bold",
                         fontsize = 14,
                         format = "%H:%M",
                         decorations = [
-                            BorderDecoration (
+                            RectDecoration (
                                 colour = colors[8],
-                                border_width = [0, 0, 2, 0],
-                                padding_x = 4
+                                padding_y = 5,
+                                radius = 2,
+                                filled = True
                             ),
                         ],
                         ),
@@ -335,16 +341,17 @@ def init_widgets_list():
                #         fontsize=15
                #         ),
                widget.Clock(
-                        foreground = colors[7],
+                        foreground = colors[1],
                         background = colors[1],
                         fontsize = 14,
                         font = "JetbrainsMono Nerd Font Bold",
                         format="%m/%d/%y",
                         decorations = [
-                            BorderDecoration (
+                            RectDecoration (
                                 colour = colors[7],
-                                border_width = [0, 0, 2, 0],
-                                padding_x = 4
+                                padding_y = 5,
+                                radius = 2,
+                                filled = True
                             ),
                         ],
                         ),
@@ -369,20 +376,6 @@ def init_widgets_list():
                #         foreground = colors[2],
                #         background = colors[1]
                #         ),
-               # arcobattery.BatteryIcon(
-               #         padding = 0,
-               #         scale = 0.7,
-               #         y_poss = 2,
-               #         theme_path = home + "/.config/qtile/icons/battery_icons_horiz",
-               #         update_interval = 5,
-               #         background = colors[1]
-               #         ),
-                #widget.Sep(
-                #        linewidth = 1,
-                #        padding = 10,
-                #        foreground = colors[2],
-                #        background = colors[1]
-                #        ),
                 widget.UPowerWidget(
                         battery_height = 10,
                         border_colour = '#d8dee9',
