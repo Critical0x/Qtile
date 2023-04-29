@@ -149,7 +149,7 @@ for i in groups:
 
 def init_layout_theme():
     return {"margin":12,
-            "border_width":0,
+            "border_width":2,
             "border_focus": "#81a1c1",
             "border_normal": "#2e3440"
             }
@@ -235,6 +235,21 @@ def init_widgets_list():
                         foreground = colors[0],
                         background = colors[1],
                         ),
+               widget.Pomodoro(
+                        background = colors[1],
+                        color_active = colors[1],
+                        color_break = colors[1],
+                        color_inactive = colors[1],
+                        font = 'JetbrainsMono Nerd Font Bold',
+                        icon_size = 14,
+                        decorations = [
+                            RectDecoration (
+                                colour = colors[6],
+                                padding_y = 5,
+                                radius = 2,
+                                filled = True
+                            ),
+                        ], ),
                widget.Sep(
                         foreground = colors[1],
                         background = colors[1],
@@ -377,15 +392,8 @@ def init_widgets_list():
                #         background = colors[1]
                #         ),
                 widget.UPowerWidget(
-                        battery_height = 10,
                         border_colour = '#d8dee9',
                         ),
-                #widget.Sep(
-                #        linewidth = 1,
-                #        padding = 10,
-                #        foreground = colors[1],
-                #        background = colors[1]
-                #        ),
                 widget.Systray(
                         background = colors[1],
                         icon_size = 20,
@@ -397,20 +405,6 @@ def init_widgets_list():
                         foreground = colors[1],
                         background = colors[1]
                         ),
-                #widget.Pomodoro(
-                #        background = colors[1],
-                #        color_active = colors[3],
-                #        color_break = colors[9],
-                #        color_inactive = colors[6],
-                #        font = 'JetbrainsMono Nerd Font Bold',
-                #        icon_size = 14
-                #        ),
-                #widget.Sep(
-                #        linewidth = 1,
-                #        padding = 10,
-                #        foreground = colors[2],
-                #        background = colors[1]
-                #        ),
               ]
     return widgets_list
 
@@ -426,7 +420,7 @@ widgets_screen1 = init_widgets_screen1()
 
 
 def init_screens():
-    return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), size=28, opacity=1.0))]
+    return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), size=28, opacity=0.9))]
 screens = init_screens()
 
 
@@ -492,7 +486,3 @@ auto_fullscreen = True
 focus_on_window_activation = "focus" # or smart
 
 wmname = "LG3D"
-
-
-
-
