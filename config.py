@@ -141,9 +141,9 @@ for i in groups:
         Key([mod, "shift" ], "Tab", lazy.screen.prev_group()),
 
 # MOVE WINDOW TO SELECTED WORKSPACE 1-10 AND STAY ON WORKSPACE
-        Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
+        Key([mod, "control"], i.name, lazy.window.togroup(i.name)),
 # MOVE WINDOW TO SELECTED WORKSPACE 1-10 AND FOLLOW MOVED WINDOW TO WORKSPACE
-        Key([mod, "control"], i.name, lazy.window.togroup(i.name) , lazy.group[i.name].toscreen()),
+        Key([mod, "shift"], i.name, lazy.window.togroup(i.name) , lazy.group[i.name].toscreen()),
     ])
 
 
@@ -182,7 +182,7 @@ colors = init_colors()
 # WIDGETS FOR THE BAR
 
 def init_widgets_defaults():
-    return dict(font="JetbrainsMono Nerd Font",
+    return dict(font="JetBrainsMono Nerd Font",
                 fontsize = 12,
                 padding = 2,
                 background=colors[1])
@@ -208,7 +208,7 @@ def init_widgets_list():
                         foreground = colors[2],
                         background = colors[1]
                         ),
-               widget.GroupBox(font="JetbrainsMono Nerd Font",
+               widget.GroupBox(font="JetBrainsMono Nerd Font",
                         fontsize = 15,
                         margin_y = 2,
                         margin_x = 3,
@@ -230,7 +230,7 @@ def init_widgets_list():
                         background = colors[1],
                         foreground = colors[2],
                         ),
-               widget.WindowName(font="JetbrainsMono Nerd Font Bold",
+               widget.WindowName(font="JetBrainsMono Nerd Font Bold",
                         fontsize = 14,
                         foreground = colors[0],
                         background = colors[1],
@@ -240,7 +240,7 @@ def init_widgets_list():
                         color_active = colors[1],
                         color_break = colors[1],
                         color_inactive = colors[1],
-                        font = 'JetbrainsMono Nerd Font Bold',
+                        font = 'JetBrainsMono Nerd Font Bold',
                         icon_size = 14,
                         decorations = [
                             RectDecoration (
@@ -259,7 +259,7 @@ def init_widgets_list():
                widget.CPU(
                         background = colors[1],
                         foreground = colors[1],
-                        font = "JetbrainsMono Nerd Font Bold",
+                        font = "JetBrainsMono Nerd Font Bold",
                         fontsize = 13,
                         decorations = [
                             RectDecoration (
@@ -280,7 +280,7 @@ def init_widgets_list():
                         measure_mem = 'G',
                         foreground = colors[1],
                         background = colors[1],
-                        font = "JetbrainsMono Nerd Font Bold",
+                        font = "JetBrainsMono Nerd Font Bold",
                         fontsize = 14,
                         decorations = [
                             RectDecoration (
@@ -301,7 +301,7 @@ def init_widgets_list():
                         visible_on_warn = False,
                         background = colors[1],
                         foreground = colors[1],
-                        font = "JetbrainsMono Nerd Font Bold",
+                        font = "JetBrainsMono Nerd Font Bold",
                         fontsize = 14,
                         decorations = [
                             RectDecoration (
@@ -393,6 +393,7 @@ def init_widgets_list():
                #         ),
                 widget.UPowerWidget(
                         border_colour = '#d8dee9',
+                        border_critical_colour = '#bf616a'
                         ),
                 widget.Systray(
                         background = colors[1],
@@ -420,7 +421,7 @@ widgets_screen1 = init_widgets_screen1()
 
 
 def init_screens():
-    return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), size=28, opacity=0.9))]
+    return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), size=28, opacity=0.95))]
 screens = init_screens()
 
 
