@@ -17,12 +17,12 @@ run sxhkd -c ~/.config/qtile/sxhkd/sxhkdrc &
 
 # Utility Applications #
 
-run variety &
 run nm-applet &
-run pamac-tray &
+#run pamac-tray &
 run xfce4-power-manager &
 numlockx on &
-blueberry-tray &
+blueman-applet &
+#blueberry-tray &
 picom --config $HOME/.config/qtile/scripts/picom.conf &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
@@ -32,3 +32,4 @@ picom --config $HOME/.config/qtile/scripts/picom.conf &
 # User Applications #
 
 run volumeicon &
+
