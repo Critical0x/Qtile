@@ -7,7 +7,6 @@ from libqtile import layout, bar, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, Rule
 from libqtile.command import lazy
 from libqtile.widget import Spacer
-import arcobattery
 from qtile_extras import widget
 from qtile_extras.widget.decorations import BorderDecoration
 from qtile_extras.widget.decorations import RectDecoration
@@ -182,7 +181,7 @@ colors = init_colors()
 # WIDGETS FOR THE BAR
 
 def init_widgets_defaults():
-    return dict(font="JetBrainsMono Nerd Font",
+    return dict(font="Source Code Pro",
                 fontsize = 12,
                 padding = 2,
                 background=colors[1])
@@ -208,7 +207,7 @@ def init_widgets_list():
                         foreground = colors[2],
                         background = colors[1]
                         ),
-               widget.GroupBox(font="JetBrainsMono Nerd Font",
+               widget.GroupBox(font="Source Code Pro",
                         fontsize = 15,
                         margin_y = 2,
                         margin_x = 3,
@@ -230,7 +229,7 @@ def init_widgets_list():
                         background = colors[1],
                         foreground = colors[2],
                         ),
-               widget.WindowName(font="JetBrainsMono Nerd Font Bold",
+               widget.WindowName(font="Source Code Pro Bold",
                         fontsize = 14,
                         foreground = colors[0],
                         background = colors[1],
@@ -240,7 +239,7 @@ def init_widgets_list():
                         color_active = colors[1],
                         color_break = colors[1],
                         color_inactive = colors[1],
-                        font = 'JetBrainsMono Nerd Font Bold',
+                        font = 'Source Code Pro Bold',
                         icon_size = 14,
                         decorations = [
                             RectDecoration (
@@ -259,7 +258,7 @@ def init_widgets_list():
                widget.CPU(
                         background = colors[1],
                         foreground = colors[1],
-                        font = "JetBrainsMono Nerd Font Bold",
+                        font = "Source Code Pro Bold",
                         fontsize = 13,
                         decorations = [
                             RectDecoration (
@@ -280,7 +279,7 @@ def init_widgets_list():
                         measure_mem = 'G',
                         foreground = colors[1],
                         background = colors[1],
-                        font = "JetBrainsMono Nerd Font Bold",
+                        font = "Source Code Pro Bold",
                         fontsize = 14,
                         decorations = [
                             RectDecoration (
@@ -301,7 +300,7 @@ def init_widgets_list():
                         visible_on_warn = False,
                         background = colors[1],
                         foreground = colors[1],
-                        font = "JetBrainsMono Nerd Font Bold",
+                        font = "Source Code Pro Bold",
                         fontsize = 14,
                         decorations = [
                             RectDecoration (
@@ -329,7 +328,7 @@ def init_widgets_list():
                widget.Clock(
                         foreground = colors[1],
                         background = colors[1],
-                        font = "JetbrainsMono Nerd Font Bold",
+                        font = "Source Code Pro Bold",
                         fontsize = 14,
                         format = "%H:%M",
                         decorations = [
@@ -359,7 +358,7 @@ def init_widgets_list():
                         foreground = colors[1],
                         background = colors[1],
                         fontsize = 14,
-                        font = "JetbrainsMono Nerd Font Bold",
+                        font = "Source Code Pro Bold",
                         format="%m/%d/%y",
                         decorations = [
                             RectDecoration (
@@ -385,12 +384,12 @@ def init_widgets_list():
                #     pause_icon = 'x',
                #     format = '{icon} {artist}: {track}'
                #       ),
-               # widget.Sep(
-               #         linewidth = 1,
-               #         padding = 10,
-               #         foreground = colors[2],
-               #         background = colors[1]
-               #         ),
+                widget.Sep(
+                        linewidth = 1,
+                        padding = 10,
+                        foreground = colors[2],
+                        background = colors[1]
+                        ),
                 widget.UPowerWidget(
                         border_colour = '#d8dee9',
                         border_critical_colour = '#bf616a'
@@ -403,7 +402,7 @@ def init_widgets_list():
                 widget.Sep(
                         linewidth = 1,
                         padding = 10,
-                        foreground = colors[1],
+                        foreground = colors[2],
                         background = colors[1]
                         ),
               ]
@@ -421,7 +420,7 @@ widgets_screen1 = init_widgets_screen1()
 
 
 def init_screens():
-    return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), size=28, opacity=0.95))]
+    return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), size=28, opacity=1.0))]
 screens = init_screens()
 
 
@@ -487,3 +486,4 @@ auto_fullscreen = True
 focus_on_window_activation = "focus" # or smart
 
 wmname = "LG3D"
+
