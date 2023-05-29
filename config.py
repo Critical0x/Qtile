@@ -149,8 +149,8 @@ for i in groups:
 def init_layout_theme():
     return {"margin":12,
             "border_width":2,
-            "border_focus": "#81a1c1",
-            "border_normal": "#2e3440"
+            "border_focus": "#81A1C1",
+            "border_normal": "#B48EAD"
             }
 
 layout_theme = init_layout_theme()
@@ -158,7 +158,7 @@ layout_theme = init_layout_theme()
 
 layouts = [
     layout.MonadTall(**layout_theme, new_client_position='top'),
-    layout.Max()
+    layout.Max(**layout_theme)
 ]
 
 # COLORS FOR THE BAR
@@ -181,7 +181,7 @@ colors = init_colors()
 # WIDGETS FOR THE BAR
 
 def init_widgets_defaults():
-    return dict(font="Source Code Pro",
+    return dict(font="Jetbrains Mono Nerd Font",
                 fontsize = 12,
                 padding = 2,
                 background=colors[1])
@@ -207,7 +207,7 @@ def init_widgets_list():
                         foreground = colors[2],
                         background = colors[1]
                         ),
-               widget.GroupBox(font="Source Code Pro",
+               widget.GroupBox(font="Jetbrains Mono Nerd Font",
                         fontsize = 15,
                         margin_y = 2,
                         margin_x = 3,
@@ -229,7 +229,7 @@ def init_widgets_list():
                         background = colors[1],
                         foreground = colors[2],
                         ),
-               widget.WindowName(font="Source Code Pro Bold",
+               widget.WindowName(font="Jetbrains Mono Nerd Font Bold",
                         fontsize = 14,
                         foreground = colors[0],
                         background = colors[1],
@@ -239,7 +239,7 @@ def init_widgets_list():
                         color_active = colors[1],
                         color_break = colors[1],
                         color_inactive = colors[1],
-                        font = 'Source Code Pro Bold',
+                        font = 'Jetbrains Mono Nerd Font Bold',
                         icon_size = 14,
                         decorations = [
                             RectDecoration (
@@ -258,7 +258,7 @@ def init_widgets_list():
                widget.CPU(
                         background = colors[1],
                         foreground = colors[1],
-                        font = "Source Code Pro Bold",
+                        font = "Jetbrains Mono Nerd Font Bold",
                         fontsize = 13,
                         decorations = [
                             RectDecoration (
@@ -279,7 +279,7 @@ def init_widgets_list():
                         measure_mem = 'G',
                         foreground = colors[1],
                         background = colors[1],
-                        font = "Source Code Pro Bold",
+                        font = "Jetbrains Mono Nerd Font Bold",
                         fontsize = 14,
                         decorations = [
                             RectDecoration (
@@ -300,7 +300,7 @@ def init_widgets_list():
                         visible_on_warn = False,
                         background = colors[1],
                         foreground = colors[1],
-                        font = "Source Code Pro Bold",
+                        font = "Jetbrains Mono Nerd Font Bold",
                         fontsize = 14,
                         decorations = [
                             RectDecoration (
@@ -328,7 +328,7 @@ def init_widgets_list():
                widget.Clock(
                         foreground = colors[1],
                         background = colors[1],
-                        font = "Source Code Pro Bold",
+                        font = "Jetbrains Mono Nerd Font Bold",
                         fontsize = 14,
                         format = "%H:%M",
                         decorations = [
@@ -358,7 +358,7 @@ def init_widgets_list():
                         foreground = colors[1],
                         background = colors[1],
                         fontsize = 14,
-                        font = "Source Code Pro Bold",
+                        font = "Jetbrains Mono Nerd Font Bold",
                         format="%m/%d/%y",
                         decorations = [
                             RectDecoration (
